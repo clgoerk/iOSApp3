@@ -41,12 +41,12 @@ struct ExerciseListView: View {
       }
       .navigationTitle("Exercises")
       .task {
-        await viewModel.loadExercises() // ✅ Remove limit parameter
+        await viewModel.loadExercises() 
       }
     }
-  }
-}
+  } // body
+} // ExerciseListView
 
 #Preview {
   ExerciseListView()
-}
+} // ExerciseListView_Previews

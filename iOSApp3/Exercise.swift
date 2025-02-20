@@ -12,5 +12,5 @@ struct Exercise: Identifiable, Codable {
   let equipment: String
   let target: String
   let gifUrl: String
-  let instructions: [String]  // Change from String to [String]
-}
+  let instructions: [String]
+} // Exercise

@@ -39,10 +39,10 @@ struct CustomPicker: View {
       .padding(.horizontal)
     }
   }
-}
+} // CustomPicker
 
 #Preview {
   @Previewable @State var previewSelectedBodyPart = "Chest"
 
   return CustomPicker(selectedBodyPart: $previewSelectedBodyPart, bodyParts: ["Chest", "Back", "Arms", "Legs", "Shoulders", "Abs"])
-}
+} // CustomPicker_Previews

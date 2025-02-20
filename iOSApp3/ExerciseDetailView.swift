@@ -53,8 +53,8 @@ struct ExerciseDetailView: View {
       .padding()
       .navigationTitle(exercise.name)
     }
-  }
-}
+  } // body
+} // ExerciseDetailView
 
 #Preview {
   ExerciseDetailView(exercise: Exercise(
@@ -66,4 +66,4 @@ struct ExerciseDetailView: View {
     gifUrl: "https://example.com/image.gif",
     instructions: ["Start in a plank position.", "Lower your body.", "Push back up."]
   ))
-}
+} // ExerciseDetailView_Previews

@@ -16,8 +16,8 @@ struct ContentView: View {
     }
     .navigationViewStyle(StackNavigationViewStyle())
   }
-}
+} // ContentView
 
 #Preview {
   ContentView()
-}
+} // ContentView_Previews

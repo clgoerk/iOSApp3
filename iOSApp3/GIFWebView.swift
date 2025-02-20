@@ -16,7 +16,7 @@ struct GIFWebView: UIViewRepresentable {
     webView.scrollView.isScrollEnabled = false
     webView.contentMode = .scaleAspectFit
     return webView
-  }
+  } // makeUIView()
 
   func updateUIView(_ webView: WKWebView, context: Context) {
     let htmlString = """
@@ -30,9 +30,9 @@ struct GIFWebView: UIViewRepresentable {
     </html>
     """
     webView.loadHTMLString(htmlString, baseURL: nil)
-  }
-}
+  } // updateUIView()
+} // GIFWebView
 
 #Preview {
   GIFWebView(url: URL(string: "https://example.com/animated.gif")!)
-}
+} // GIFWebView_Previews

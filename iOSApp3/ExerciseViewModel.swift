@@ -20,7 +20,7 @@ class ExerciseViewModel: ObservableObject {
     } catch {
       print("❌ Failed to load exercises: \(error)")
     }
-  }
+  } // loadExercises()
 
   func searchExercises() async {
     guard !searchText.isEmpty else { return }
@@ -29,7 +29,7 @@ class ExerciseViewModel: ObservableObject {
     } catch {
       print("❌ Failed to search exercises: \(error)")
     }
-  }
+  } // searchExercises()
 
   func filterByBodyPart() async {
     do {
@@ -37,5 +37,5 @@ class ExerciseViewModel: ObservableObject {
     } catch {
       print("❌ Failed to filter exercises: \(error)")
     }
-  }
-}
+  } // filterByBodyPart()
+} // ExerciseViewModel

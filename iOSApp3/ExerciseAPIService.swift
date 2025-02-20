@@ -12,15 +12,15 @@ class ExerciseAPIService {
   private let apiHost = "exercisedb.p.rapidapi.com"
 
   func fetchExercises() async throws -> [Exercise] {
-    let urlString = "https://exercisedb.p.rapidapi.com/exercises?limit=0&offset=0" // ✅ No limit
+    let urlString = "https://exercisedb.p.rapidapi.com/exercises?limit=0&offset=0" 
     return try await fetchFromAPI(urlString: urlString)
-  }
+  } // fetchExercise()
 
   func searchExercises(query: String) async throws -> [Exercise] {
     let formattedQuery = query.lowercased()
     let urlString = "https://exercisedb.p.rapidapi.com/exercises/name/\(formattedQuery)"
     return try await fetchFromAPI(urlString: urlString)
-  }
+  } // searchExercise()
 
   func fetchExercisesByBodyPart(_ bodyPart: String) async throws -> [Exercise] {
     let formattedBodyPart = bodyPart.lowercased().replacingOccurrences(of: " ", with: "%20")
@@ -29,7 +29,7 @@ class ExerciseAPIService {
     let exercises = try await fetchFromAPI(urlString: urlString)
     print("✅ Fetched \(exercises.count) exercises for body part: \(bodyPart)")
     return exercises
-  }
+  } // fetchExerciseByBodyPart()
   
   private func fetchFromAPI(urlString: String) async throws -> [Exercise] {
     guard let url = URL(string: urlString) else {
@@ -48,5 +48,5 @@ class ExerciseAPIService {
     }
 
     return try JSONDecoder().decode([Exercise].self, from: data)
-  }
-}
+  } // fetchFromAPI()
+} // ExerciseAPIService
