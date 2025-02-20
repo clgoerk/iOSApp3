@@ -1,24 +1,23 @@
 //
 //  ContentView.swift
-//  iOSApp3
+//  ExerciseApp
 //
-//  Created by Chris Goerk on 2025-02-20.
+//  Created by Chris Goerk on 2025-02-19.
 //
 
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+  var body: some View {
+    NavigationView {
+      VStack(spacing: 0) {
+        ExerciseListView()
+      }
     }
+    .navigationViewStyle(StackNavigationViewStyle())
+  }
 }
 
 #Preview {
-    ContentView()
+  ContentView()
 }
