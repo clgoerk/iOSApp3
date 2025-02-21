@@ -13,6 +13,8 @@ struct ExerciseDetailView: View {
   var body: some View {
     ScrollView {
       VStack(alignment: .leading, spacing: 20) {
+        
+        // Display exercise GIF or a placeholder image if unavailable
         if let gifURL = URL(string: exercise.gifUrl) {
           GIFWebView(url: gifURL)
             .frame(height: 200)
@@ -24,19 +26,23 @@ struct ExerciseDetailView: View {
             .foregroundColor(.gray)
         }
 
+        // Exercise Name
         Text(exercise.name)
           .font(.largeTitle)
           .fontWeight(.bold)
 
+        // Targeted Muscle Group
         Text("Target: \(exercise.target)")
           .font(.title2)
           .foregroundColor(.blue)
 
+        // Equipment Used
         Text("Equipment: \(exercise.equipment)")
           .font(.body)
 
         Divider()
 
+        // Exercise Instructions
         if !exercise.instructions.isEmpty {
           Text("Instructions:")
             .font(.title2)

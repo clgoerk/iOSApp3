@@ -9,11 +9,13 @@ import SwiftUI
 
 struct ExerciseListView: View {
   @StateObject private var viewModel = ExerciseViewModel()
+
   let bodyParts = ["All", "Cardio", "Chest", "Back", "Lower Legs", "Upper Legs", "Lower Arms", "Upper Arms", "Shoulders", "Waist", "Neck"]
 
   var body: some View {
     NavigationView {
       VStack {
+        // Search Bar
         TextField("Search exercises...", text: $viewModel.searchText)
           .textFieldStyle(RoundedBorderTextFieldStyle())
           .padding()
@@ -21,18 +23,20 @@ struct ExerciseListView: View {
             Task { await viewModel.searchExercises() }
           }
 
+        // Picker to filter exercises by body part
         CustomPicker(selectedBodyPart: $viewModel.selectedBodyPart, bodyParts: bodyParts)
           .padding()
           .onChange(of: viewModel.selectedBodyPart) {
             Task { await viewModel.filterByBodyPart() }
           }
 
+        // List of Exercises with Navigation to Detail View
         List(viewModel.exercises) { exercise in
           NavigationLink(destination: ExerciseDetailView(exercise: exercise)) {
             VStack(alignment: .leading) {
-              Text(exercise.name)
+              Text(exercise.name) // Exercise name
                 .font(.headline)
-              Text("Target: \(exercise.target)")
+              Text("Target: \(exercise.target)") // Targeted muscle group
                 .font(.subheadline)
                 .foregroundColor(.gray)
             }
@@ -41,7 +45,7 @@ struct ExerciseListView: View {
       }
       .navigationTitle("Exercises")
       .task {
-        await viewModel.loadExercises() 
+        await viewModel.loadExercises()
       }
     }
   } // body
